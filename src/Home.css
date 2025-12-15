@@ -1,0 +1,9 @@
+.cls{
+    color: rgb(148, 64, 18);
+    background-color: black;
+    width: 300px;
+}
+
+.nav-item{
+    margin-left:30px ;
+}
