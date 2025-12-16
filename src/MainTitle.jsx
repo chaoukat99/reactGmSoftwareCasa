@@ -24,7 +24,14 @@ function MainTitle() {
     {/* <h1 style={{color:"red",fontSize:"30px"}} >MainTitle</h1> */}
     <h2 className='second-title'>Hello {user!=null?user.name:"Guest"}</h2>
     <h2 className='text-danger'>Hello</h2>
+
+<h2> title : {product.name} </h2>
+<h2> title : {product.name} </h2>
+    {/* <h2 style={{color:product.disponible?"green":"red"}} className='btn btn-success'>text</h2> */}
     {/* <h2>{arr}</h2> */}
+    <a href="" className={product.disponible?"btn btn-success"
+        :"btn btn-danger"
+    }>Buy Now</a>
     </>
   )
 }
