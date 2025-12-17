@@ -5,6 +5,7 @@ import TextToSpeech from './TextToSpeech'
 import SpeechToText from './SpeechToText'
 import List from './List'
 import ListOfProducts from './ListOfProducts'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

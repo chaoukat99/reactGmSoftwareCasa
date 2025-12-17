@@ -1,8 +1,21 @@
 import React from 'react'
 import Products from './data.js'
 import "./css/productList.css"
+import Swal from 'sweetalert2';
 function ListOfProducts() {
  
+
+//   function showAlert(el){
+//     Swal.fire({
+//   position: "center",
+//   icon: "error",
+//   title:el.name ,
+//   showConfirmButton: false,
+//   timer: 1500
+// });
+
+
+  // }
   return (
     <div>
         <h1 className='text-center'>List Of Products</h1>
@@ -17,9 +30,19 @@ function ListOfProducts() {
     <p className="card-text">
   {el.description}
     </p>
-    <a href="#" className="btn btn-primary">
+    <button className="btn btn-primary"
+    onClick={()=>{
+      return (Swal.fire({
+  position: "center",
+  icon: "success",
+  title:el.name ,
+  showConfirmButton: false,
+
+}))
+    }}
+    >
       Buy now
-    </a>
+    </button>
   </div>
 </div>)}
 
