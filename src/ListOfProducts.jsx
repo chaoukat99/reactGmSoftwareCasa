@@ -2,21 +2,27 @@ import React from 'react'
 import Products from './data.js'
 import "./css/productList.css"
 import Swal from 'sweetalert2';
+
 function ListOfProducts() {
  
 
-//   function showAlert(el){
-//     Swal.fire({
-//   position: "center",
-//   icon: "error",
-//   title:el.name ,
-//   showConfirmButton: false,
-//   timer: 1500
-// });
+  function showAlert(el){
+    Swal.fire({
+  position: "center",
+  icon: "error",
+  title:el.name ,
+  showConfirmButton: false,
+  timer: 1500
+});
 
 
   // }
+
+  
+
+
   return (
+    <>
     <div>
         <h1 className='text-center'>List Of Products</h1>
 <div className='parent'>
@@ -49,7 +55,34 @@ function ListOfProducts() {
 
     </div>
     </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Stock</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {Products.map((el,i)=><tr>
+          <td>{el.id}</td>
+          <td>{el.na}</td>
+          <td>{el.na}</td>
+          <td>{el.na}</td>
+          <td>
+            {/* <button onClick={()=>}>View</button> */}
+          </td>
+        </tr>)}
+      </tbody>
+  
+    </table>
+    </>
   )
+
 }
 
 export default ListOfProducts
