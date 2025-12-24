@@ -1,88 +1,73 @@
 import React from 'react'
-import Products from './data.js'
-import "./css/productList.css"
+
+
+
+import Products from "./data.js";
 import Swal from 'sweetalert2';
 
 function ListOfProducts() {
- 
 
-  function showAlert(el){
-    Swal.fire({
-  position: "center",
-  icon: "error",
-  title:el.name ,
-  showConfirmButton: false,
-  timer: 1500
+const ViewDetails=(Product)=>{
+  
+  Swal.fire({
+  title:Product.name ,
+  html: `<ul>
+        <li>Price : ${Product.price}</li>  
+        <li>Desc : ${Product.description}</li>  
+        <li>Stock : ${Product.stock>0?Product.stock:"out Of Stock"}
+  </ul>`,
+  imageUrl:Product.imageUrl,
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: "Custom image"
 });
 
-
-  // }
-
-  
+}
 
 
   return (
-    <>
     <div>
-        <h1 className='text-center'>List Of Products</h1>
-<div className='parent'>
+      <h2 className='text-center'>List Of Products</h2>
+ <table className='table table-hover'>
 
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Stock</th>
+      <th>Action</th>
+    </tr>
+  </thead>
 
-        {Products.map((el,i)=><div className="card" key={i} style={{ width: "18rem" }}>
-  <img src={el.imageUrl} className="card-img-top" alt="..." />
-  <div className="card-body">
-    <h5 className="card-title">Product Name : {el.name}</h5>
-    <h5 className="card-title">Product Price : {el.price} $</h5>
-    <p className="card-text">
-  {el.description}
-    </p>
-    <button className="btn btn-primary"
-    onClick={()=>{
-      return (Swal.fire({
-  position: "center",
-  icon: "success",
-  title:el.name ,
-  showConfirmButton: false,
+  <tbody>
+       
+          {Products.map((el,i)=><tr>
+            <td>{el.id}</td>
+            <td>{el.name}</td>
+            <td>{el.price} MAD</td>
+            <td>{el.description}</td>
+            <td>
+              <img src={el.imageUrl} alt="" width={100} height={100} />
+            </td>
+            <td>
+              {el.stock>0?el.stock:"Out of stock"}
+            </td>
 
-}))
-    }}
-    >
-      Buy now
-    </button>
-  </div>
-</div>)}
+            <td>
+              <button className='btn btn-info'
+              onClick={()=>{ViewDetails(el)}}
+              >View</button>
+            </td>
 
+          </tr>)}
+  </tbody>
+ </table>
 
     </div>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Description</th>
-          <th>Stock</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {Products.map((el,i)=><tr>
-          <td>{el.id}</td>
-          <td>{el.na}</td>
-          <td>{el.na}</td>
-          <td>{el.na}</td>
-          <td>
-            {/* <button onClick={()=>}>View</button> */}
-          </td>
-        </tr>)}
-      </tbody>
-  
-    </table>
-    </>
   )
-
 }
 
 export default ListOfProducts
