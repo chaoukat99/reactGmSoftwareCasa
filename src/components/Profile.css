@@ -1,0 +1,44 @@
+.profile-page {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f7f9fb 0%, #eef3f7 100%);
+	padding: 2rem;
+}
+
+.profile-card {
+	width: 100%;
+	max-width: 420px;
+	border-radius: 0.75rem;
+	overflow: hidden;
+}
+
+.profile-card .card-body {
+	padding: 2rem;
+}
+
+.avatar {
+	width: 96px;
+	height: 96px;
+	line-height: 96px;
+	border-radius: 50%;
+	background: #0d6efd;
+	color: #fff;
+	font-weight: 700;
+	font-size: 28px;
+	margin: 0 auto;
+	display: inline-block;
+}
+
+@media (max-width: 576px) {
+	.profile-page {
+		padding: 1rem;
+	}
+	.profile-card {
+		margin: 0 0.5rem;
+	}
+	.avatar {
+		width: 80px;
+		height: 80px;
+		line-height: 80px;
+		font-size: 22px;
+	}
+}

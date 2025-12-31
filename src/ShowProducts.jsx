@@ -4,6 +4,25 @@ import Products from './data.js'
 function showProducts() {
 
     const [data,setData]=useState(Products)
+
+
+    const getMax=()=>{
+      let pricesArr=data.map(el=>el.price);
+      let max = Math.max(...pricesArr)
+
+      let MaxProduct=data.filter((el)=>el.price==max)
+      setData(MaxProduct);
+     
+    }
+    const getMin=()=>{
+      
+      let pricesArr=data.map(el=>el.price);
+      let min = Math.min(...pricesArr)
+
+      let MinProduct=data.filter((el)=>el.price==min)
+      setData(MinProduct);
+     
+    }
   return (
     <div>
         <h1>List Products </h1>
@@ -20,7 +39,7 @@ function showProducts() {
     </thead>
 
     <tbody>
-       {data.length>0?data.map(el=><tr>
+       {data.length>0?data.map(el=><tr key={el.id}>
            <td>{el.id}</td>
            <td>{el.name}</td>
            <td>{el.price}</td>
@@ -32,7 +51,8 @@ function showProducts() {
         </tr>}
     </tbody>
   </table>
-  <button>display the Highest Price Product</button>
+  <button onClick={()=>getMax()}>display the Highest Price Product</button>
+  <button onClick={()=>getMin()}>display the Lowest Price Product</button>
     </div>
   )
 }
