@@ -9,4 +9,9 @@ const Products = [
   { id: 8, name: 'Wall Art', price: 690.99, imageUrl: 'https://picsum.photos/id/1035/600/400', description: 'Framed modern wall art', stock: 25 }
 ];
 
+
+let parameter=7;
+
+
+let SearchedValue=Products.find((el,i)=>el.id==parameter);
 export default Products;

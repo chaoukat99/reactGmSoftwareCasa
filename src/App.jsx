@@ -35,6 +35,9 @@ import Parent from './components/Parent'
 import Login from './components/Login'
 import Profile from './components/Profile'
 import ParameterComp from './components/ParameterComp'
+import Redirection from './components/Redirection'
+import AdminDashboard from './components/AdminDashboard'
+import ProtectedRoute from './ProtectedRoute'
 
 function App() {
 
@@ -84,16 +87,11 @@ function App() {
 
 <Route path='/'   element={<Home/>}   />
 <Route path='/about' element={<About/>}  />
-<Route path='/contact' element={<Contact/>}  />
+
 
 {/* Nested Route  */}
 
-<Route path='/user'  element={<Parent/>}  >
-       <Route  index  element={<Profile/>}   />
-       <Route   path="login" element={<Login/>}   />
-       <Route path='profile' element={<Profile/>} />
-     
-</Route>
+
 
 
 {/* <Route path="/admin" element={<ParentAdmin/>}>
@@ -102,13 +100,30 @@ function App() {
    <Route   path='statistics'  element={<Statisctis/>} />
 
 </Route> */}
-<Route   path='/products/:id' element={<ParameterComp/>}  />
+<Route   path='/products/:comment' element={<ParameterComp/>}  />
+{/* <Route   path='/post/:Postid/comment/:commentId' element={<ParameterComp/>}  /> */}
 
-
+<Route path='/redirection' element={<Redirection/>}/>
 {/* Error Route */}
+
+{/* Protected Route  */}
+
+
+<Route  element={<ProtectedRoute/>}>
+
+   <Route path='/admin' element={<AdminDashboard/>}/>
+   <Route path='/contact' element={<Contact/>}  />
+
+</Route>
+
+
+
+
 <Route  path='*'  element={<Error/>}/>
 
 </Routes>
+
+
 
 </BrowserRouter>
 

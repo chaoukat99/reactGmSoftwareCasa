@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { useParams } from 'react-router-dom'
-
+import { useParams } from 'react-router-dom';
 
 function ParameterComp() {
 
-const {name}=useParams();
+const {Postid,commentId,}=useParams();
 
   return (
     <div>
